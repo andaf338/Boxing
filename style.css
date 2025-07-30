@@ -6,66 +6,26 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #8A2BE2 0%, #4B0082 25%, #6A5ACD 50%, #C0C0C0 75%, #E6E6FA 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 20px;
-    animation: backgroundShift 10s ease-in-out infinite alternate;
-}
-
-@keyframes backgroundShift {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
 }
 
 .container {
-    width: 100%;
-    max-width: 500px;
-    perspective: 1000px;
-}
-
-.profile-card {
-    background: linear-gradient(145deg, rgba(138, 43, 226, 0.95), rgba(192, 192, 192, 0.3));
-    backdrop-filter: blur(20px);
-    border-radius: 25px;
-    padding: 30px;
-    box-shadow: 
-        0 20px 60px rgba(138, 43, 226, 0.3),
-        0 0 0 1px rgba(255, 255, 255, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(192, 192, 192, 0.3);
-    transform: translateY(50px);
-    opacity: 0;
-    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
-.profile-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.8s;
-}
-
-.profile-card:hover::before {
-    left: 100%;
-}
-
-.profile-card.loaded {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.profile-header {
+.header {
+    background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+    padding: 40px 30px;
     text-align: center;
-    margin-bottom: 25px;
+    color: white;
 }
 
 .photo-container {
@@ -73,24 +33,21 @@ body {
     width: 150px;
     height: 150px;
     margin: 0 auto 20px;
-    cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.3);
     transition: transform 0.3s ease;
 }
 
 .photo-container:hover {
-    transform: scale(1.05) rotate(2deg);
+    transform: scale(1.05);
 }
 
 .profile-photo {
     width: 100%;
     height: 100%;
-    border-radius: 50%;
     object-fit: cover;
-    border: 4px solid rgba(192, 192, 192, 0.8);
-    box-shadow: 
-        0 10px 30px rgba(138, 43, 226, 0.4),
-        0 0 0 8px rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
+    display: block;
 }
 
 .photo-overlay {
@@ -99,288 +56,165 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(138, 43, 226, 0.8);
-    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-    color: white;
-    font-weight: 600;
-    font-size: 14px;
 }
 
 .photo-container:hover .photo-overlay {
     opacity: 1;
 }
 
+.change-photo-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.change-photo-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
 .name {
     font-size: 2.2em;
-    font-weight: 700;
-    background: linear-gradient(135deg, #E6E6FA, #C0C0C0, #8A2BE2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-weight: 600;
     margin-bottom: 10px;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nickname {
-    font-size: 1.3em;
-    color: rgba(192, 192, 192, 0.9);
-    font-style: italic;
+    font-size: 1.1em;
+    opacity: 0.9;
     font-weight: 300;
-    margin-bottom: 20px;
 }
 
-.profile-info {
-    margin-bottom: 25px;
+.content {
+    padding: 40px 30px;
 }
 
-.info-item {
+.info-section {
+    margin-bottom: 30px;
+}
+
+.info-title {
+    color: #1976d2;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1em;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 12px 15px;
-    border-radius: 12px;
-    border-left: 4px solid #C0C0C0;
-    transition: all 0.3s ease;
 }
 
-.info-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(5px);
-}
-
-.info-item i {
-    color: #C0C0C0;
-    margin-right: 12px;
-    width: 20px;
-    text-align: center;
-    font-size: 1.2em;
-}
-
-.description {
-    margin-bottom: 25px;
-}
-
-.description h2 {
-    color: #E6E6FA;
-    font-size: 1.5em;
-    margin-bottom: 15px;
-    text-align: center;
-    position: relative;
-}
-
-.description h2::after {
+.info-title::before {
     content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(90deg, #8A2BE2, #C0C0C0);
+    width: 4px;
+    height: 20px;
+    background: #2196f3;
+    margin-right: 10px;
     border-radius: 2px;
 }
 
-.description p {
-    color: rgba(255, 255, 255, 0.9);
+.info-content {
+    color: #555;
     line-height: 1.6;
-    font-size: 1.1em;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
+    font-size: 1em;
+}
+
+.description {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 25px;
     border-radius: 15px;
-    border: 1px solid rgba(192, 192, 192, 0.2);
+    border-left: 5px solid #2196f3;
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #444;
+    margin-top: 20px;
 }
 
-.hobbies {
-    margin-bottom: 25px;
-}
-
-.hobbies h3 {
-    color: #E6E6FA;
-    font-size: 1.3em;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.hobby-tags {
+.social-links {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
     justify-content: center;
-}
-
-.tag {
-    background: linear-gradient(135deg, rgba(138, 43, 226, 0.8), rgba(192, 192, 192, 0.3));
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9em;
-    font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.2);
-}
-
-.tag:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
-    background: linear-gradient(135deg, rgba(138, 43, 226, 1), rgba(192, 192, 192, 0.5));
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-
-.social-links h3 {
-    color: #E6E6FA;
-    font-size: 1.3em;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.links-container {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: 30px;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #e0e0e0;
 }
 
 .social-link {
     display: flex;
     align-items: center;
-    padding: 15px 20px;
-    border-radius: 15px;
     text-decoration: none;
-    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
     font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
 }
 
-.social-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.5s;
+.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
 }
 
-.social-link:hover::before {
-    left: 100%;
+.instagram:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(240, 148, 51, 0.4);
 }
 
-.social-link.instagram {
-    background: linear-gradient(45deg, #E4405F, #833AB4, #C13584, #FD1D1D);
-    box-shadow: 0 8px 25px rgba(228, 64, 95, 0.3);
+.tiktok {
+    background: #000;
+    color: white;
 }
 
-.social-link.instagram:hover {
-    box-shadow: 0 12px 35px rgba(228, 64, 95, 0.5);
-    border-color: rgba(255, 255, 255, 0.3);
+.tiktok:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.social-link.tiktok {
-    background: linear-gradient(45deg, #000000, #FF0050, #00F2EA);
-    box-shadow: 0 8px 25px rgba(255, 0, 80, 0.3);
-}
-
-.social-link.tiktok:hover {
-    box-shadow: 0 12px 35px rgba(255, 0, 80, 0.5);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.social-link i {
-    font-size: 1.5em;
-    margin-right: 12px;
-    width: 30px;
-    text-align: center;
-}
-
-.social-link span {
-    font-size: 1.1em;
-    letter-spacing: 0.5px;
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
 }
 
 .footer {
-    margin-top: 30px;
     text-align: center;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    border: 1px solid rgba(192, 192, 192, 0.2);
+    color: #777;
+    font-size: 0.9em;
+    background: #f8f9fa;
 }
 
-.footer p {
-    color: rgba(230, 230, 250, 0.8);
-    font-size: 1.1em;
-    font-weight: 500;
-    letter-spacing: 1px;
-}
-
-/* Responsive Design */
 @media (max-width: 600px) {
     .container {
-        padding: 10px;
+        margin: 10px;
+        border-radius: 15px;
     }
     
-    .profile-card {
-        padding: 20px;
+    .header {
+        padding: 30px 20px;
+    }
+    
+    .content {
+        padding: 30px 20px;
     }
     
     .name {
         font-size: 1.8em;
     }
     
-    .photo-container {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .hobby-tags {
+    .social-links {
         flex-direction: column;
         align-items: center;
-    }
-    
-    .tag {
-        width: fit-content;
+        gap: 15px;
     }
 }
-
-/* Loading Animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.profile-card > * {
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.profile-card > *:nth-child(1) { animation-delay: 0.1s; }
-.profile-card > *:nth-child(2) { animation-delay: 0.2s; }
-.profile-card > *:nth-child(3) { animation-delay: 0.3s; }
-.profile-card > *:nth-child(4) { animation-delay: 0.4s; }
-.profile-card > *:nth-child(5) { animation-delay: 0.5s; }
-.profile-card > *:nth-child(6) { animation-delay: 0.6s; }
