@@ -1,23 +1,104 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portofolio Andi Dhafi Khairullah</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Andi Dhafi Khairullah</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <div class="photo">
-        <img src="https://lh3.googleusercontent.com/pw/AP1GczMlkzFwo7W28XmjTWjfJ02zNGr5d_SC1iqRjs62SyopCwGBIKBFiMM8R-vS4HsFxZke2Nhv9OZr3BlxcfSaLejsxCZA6d-YBTYvC5CJtj1_cfGtuXdj4x2QikNr6heFEx6-3mAxn5jCtOQNUQk2GQyJ=w494-h878-s-no-gm?authuser=0.jpg" alt="Foto Andi Dhafi Khairullah" />
-      </div>
-      <h1>Andi Dhafi Khairullah</h1>
-      <p><strong>Tempat, Tanggal Lahir:</strong> Soppeng, 03 Maret 2008</p>
-      <p><strong>Alamat:</strong> Lajoa</p>
-      <div class="about">
-        <p>Hai, aku Dhafi bisa juga dipanggil <strong>Boxing</strong>. Aku anak Lajoa yang hobi main game kapan aja. Kalo lagi laper, paling demen Indomie sama ayam. Hidup santai, yang penting happy! 😎😎</p>
-      </div>
+    <div class="container">
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="photo-container">
+                    <img src="https://raw.githubusercontent.com/TechStudent404/XI-TJKT3-PICTURE/5baebc949b261fca0aac7ba96c13b79948adfbe8/Dhafi%20Khairullah%20PIC/WhatsApp%20Image%202025-07-29%20at%2016.33.09_8a74d41d.jpg" alt="Andi Dhafi Khairullah" class="profile-photo">
+                    <div class="photo-overlay">
+                        <span>Upload Foto</span>
+                    </div>
+                </div>
+                <h1 class="name">Andi Dhafi Khairullah</h1>
+                <p class="nickname">"Boxing"</p>
+            </div>
+
+            <div class="profile-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Soppeng, 03 Maret 2008</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-home"></i>
+                    <span>Lajoa</span>
+                </div>
+            </div>
+
+            <div class="description">
+                <h2>Tentang Saya</h2>
+                <p>Hai, aku Dhafi bisa juga dipanggil Boxing. Aku anak Lajoa yang hobi main game kapan aja. Kalo lagi laper, paling demen Indomie sama ayam. Hidup santai, yang penting happy! 😎😎</p>
+            </div>
+
+            <div class="hobbies">
+                <h3>Hobi & Kesukaan</h3>
+                <div class="hobby-tags">
+                    <span class="tag">🎮 Gaming</span>
+                    <span class="tag">🍜 Indomie</span>
+                    <span class="tag">🍗 Ayam</span>
+                    <span class="tag">😎 Santai</span>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <h3>Sosial Media</h3>
+                <div class="links-container">
+                    <a href="https://instagram.com/im_not_k1ng" target="_blank" class="social-link instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>@im_not_k1ng</span>
+                    </a>
+                    <a href="https://tiktok.com/@xudin0" target="_blank" class="social-link tiktok">
+                        <i class="fab fa-tiktok"></i>
+                        <span>@xudin0</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>Stay Happy, Stay Gaming! 🎮✨</p>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <script>
+        // Add smooth animations
+        window.addEventListener('load', function() {
+            const card = document.querySelector('.profile-card');
+            card.classList.add('loaded');
+        });
+
+        // Photo upload simulation
+        document.querySelector('.photo-container').addEventListener('click', function() {
+            alert('Klik di sini untuk upload foto profil Anda!');
+        });
+
+        // Hover effects for social links
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.05)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Interactive hobby tags
+        document.querySelectorAll('.tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                this.style.animation = 'bounce 0.6s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 600);
+            });
+        });
+    </script>
 </body>
+</html>
